@@ -1,55 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlas Shards ($ATLS)</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Shards ($ATLS)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="preloader">
-        <img src="assets/Logo.png" alt="Atlas Shards Logo">
-        <p class="preloader-text">YOUR GRIND. YOUR REWARDS</p>
-        <p class="preloader-subtext">A solo-dev project for Path of Exile 2 fans</p>
-    </div>
+  <!-- Language Toggle Button -->
+  <div id="language-toggle">
+    <button id="langToggleBtn">RU</button>
+  </div>
 
-    <div id="content">
-        <header>
-            <h1>Atlas Shards <span>($ATLS)</span></h1>
-            <p>Turn your POE2 grind into a community-driven adventure</p>
-            <nav>
-                <a href="#roadmap">Roadmap</a>
-                <a href="https://x.com/yourproject">Join Community</a>
-            </nav>
-        </header>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="assets/Logo.png" alt="Atlas Shards Logo" class="preloader-logo">
+    <p class="preloader-text">
+      <span class="lang-en">YOUR GRIND. YOUR REWARDS</span>
+      <span class="lang-ru">ВАШ ГРИНД. ВАШИ НАГРАДЫ</span>
+    </p>
+    <p class="preloader-subtext">
+      <span class="lang-en">A solo-dev project for Path of Exile 2 fans</span>
+      <span class="lang-ru">Фанатский проект для Path of Exile 2</span>
+    </p>
+  </div>
 
-        <section id="hero">
-            <h2>A Token for the True Atlas Explorers</h2>
-            <p>Atlas Shards ($ATLS) is an experimental project built by a solo Path of Exile 2 fan...</p>
-        </section>
+  <!-- Main Content -->
+  <div id="content">
+    <header>
+      <!-- Логотип, который появляется после preloader-а -->
+      <img id="headerLogo" src="assets/Logo.png" alt="Atlas Shards Logo">
+      <h1>Atlas Shards <span>($ATLS)</span></h1>
+      <p class="tagline">
+        <span class="lang-en">Turn your POE2 grind into a community-driven adventure</span>
+        <span class="lang-ru">Превратите свой геймплей в приключение, управляемое сообществом</span>
+      </p>
+      <nav>
+        <a href="#roadmap">
+          <span class="lang-en">Roadmap</span>
+          <span class="lang-ru">Дорожная карта</span>
+        </a>
+        <a href="#community">
+          <span class="lang-en">Join Community</span>
+          <span class="lang-ru">Присоединиться к сообществу</span>
+        </a>
+      </nav>
+    </header>
 
-        <section id="roadmap">
-            <h2>Roadmap</h2>
-            <div class="timeline">
-                <div class="phase">
-                    <h3>Month 1-2: Finalizing the Overlay</h3>
-                    <p>Building the base overlay to track maps...</p>
-                    <div class="progress"><div class="progress-bar" style="width: 30%;"></div></div>
-                </div>
+    <!-- Hero Section -->
+    <section id="hero">
+      <h2>
+        <span class="lang-en">A Token for the True Atlas Explorers</span>
+        <span class="lang-ru">Токен для настоящих исследователей Атласа</span>
+      </h2>
+      <p>
+        <span class="lang-en">
+          Atlas Shards ($ATLS) is an experimental project built by a solo Path of Exile 2 fan...
+        </span>
+        <span class="lang-ru">
+          Atlas Shards ($ATLS) — это экспериментальный проект, созданный одним энтузиастом Path of Exile 2...
+        </span>
+      </p>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+      <h2>
+        <span class="lang-en">Roadmap</span>
+        <span class="lang-ru">Дорожная карта</span>
+      </h2>
+      <div class="timeline">
+        <!-- Phase 1 -->
+        <div class="phase">
+          <div class="phase-icon">🚀</div>
+          <div class="phase-details">
+            <h3>
+              <span class="lang-en">Month 1: Token Launch</span>
+              <span class="lang-ru">Месяц 1: Выпуск токена</span>
+            </h3>
+            <p>
+              <span class="lang-en">Creating the token on a community-approved platform.</span>
+              <span class="lang-ru">Создание токена на определенной сообществом площадке.</span>
+            </p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 0%;"></div>
             </div>
-        </section>
+          </div>
+        </div>
+        <!-- Phase 2 -->
+        <div class="phase">
+          <div class="phase-icon">🔧</div>
+          <div class="phase-details">
+            <h3>
+              <span class="lang-en">Month 2: Finalizing the Overlay</span>
+              <span class="lang-ru">Месяц 2: Завершение тестовой версии оверлея</span>
+            </h3>
+            <p>
+              <span class="lang-en">Completing the test version of the overlay for tracking maps. Technical demo for 100 beta testers.</span>
+              <span class="lang-ru">Завершение тестовой версии оверлея для отслеживания карт. Техническая демо для 100 бета-тестеров.</span>
+            </p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 30%;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Phase 3 -->
+        <div class="phase">
+          <div class="phase-icon">🧪</div>
+          <div class="phase-details">
+            <h3>
+              <span class="lang-en">Month 3: Beta Testing</span>
+              <span class="lang-ru">Месяц 3: Бета-тестирование</span>
+            </h3>
+            <p>
+              <span class="lang-en">Public testing. Token rewards for maps and bosses. Integration with Solana wallets.</span>
+              <span class="lang-ru">Публичное тестирование. Начисление токенов за карты и боссов. Интеграция с Solana кошельками.</span>
+            </p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 10%;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Phase 4 -->
+        <div class="phase">
+          <div class="phase-icon">🎮</div>
+          <div class="phase-details">
+            <h3>
+              <span class="lang-en">Month 4: Official Launch</span>
+              <span class="lang-ru">Месяц 4: Официальный запуск</span>
+            </h3>
+            <p>
+              <span class="lang-en">Full launch. Possibility to earn $ATLS.</span>
+              <span class="lang-ru">Полный запуск. Возможность начисления $ATLS.</span>
+            </p>
+            <div class="progress">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="community">
-            <h2>Join the Atlas Pioneers</h2>
-            <a href="https://x.com/yourproject" class="btn">Follow on Meta/X</a>
-        </section>
+    <!-- Community Section -->
+    <section id="community">
+      <h2>
+        <span class="lang-en">Join the Atlas Pioneers</span>
+        <span class="lang-ru">Присоединяйтесь к первопроходцам Атласа</span>
+      </h2>
+      <p>
+        <span class="lang-en">
+          This project will survive only with your help. Subscribe for updates, suggest ideas, or simply follow the progress! Write all wishes and proposals on Meta.
+        </span>
+        <span class="lang-ru">
+          Этот проект выживет только с вашей помощью. Подпишитесь на обновления, предлагайте идеи или просто следите за прогрессом! Все пожелания и предложения пишите на Meta.
+        </span>
+      </p>
+      <a href="https://x.com/AtlasShard" class="btn" target="_blank">
+        <span class="lang-en">Follow on Meta/X</span>
+        <span class="lang-ru">Подписаться на Meta/X</span>
+      </a>
+      <p class="counter">
+        <span class="lang-en">127 Explorers Joined</span>
+        <span class="lang-ru">127 первопроходцев присоединились</span>
+      </p>
+      <div class="quotes">
+        <blockquote>
+          <span class="lang-en">“Finally, someone made a token for real POE2 fans!” — @User123</span>
+          <span class="lang-ru">«Наконец-то кто-то сделал токен для настоящих фанатов POE2!» — @User123</span>
+        </blockquote>
+      </div>
+    </section>
 
-        <footer>
-            <p>© 2025 Atlas Shards. Built with obsession for POE2.</p>
-        </footer>
-    </div>
+    <!-- FAQ Section -->
+    <section id="faq">
+      <h2>
+        <span class="lang-en">FAQ</span>
+        <span class="lang-ru">Вопросы и ответы</span>
+      </h2>
+      <div class="faq-item">
+        <h3>
+          <span class="lang-en">Is this a scam?</span>
+          <span class="lang-ru">Это скам?</span>
+        </h3>
+        <p>
+          <span class="lang-en">No. The token can be earned through gameplay or purchased. No hidden fees.</span>
+          <span class="lang-ru">Нет. Токен можно заработать игрой или купить на бирже. Никаких скрытых сборов.</span>
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <span class="lang-en">When will the overlay be ready?</span>
+          <span class="lang-ru">Когда будет готов оверлей?</span>
+        </h3>
+        <p>
+          <span class="lang-en">Public beta release is at the end of Month 2. Stay tuned on Meta/X.</span>
+          <span class="lang-ru">Публичная бета-версия — конец 2-го месяца. Следите за обновлениями в Meta/X.</span>
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>
+          <span class="lang-en">Which devices are supported?</span>
+          <span class="lang-ru">На каких устройствах работает?</span>
+        </h3>
+        <p>
+          <span class="lang-en">Windows + POE2 software. Mac/Linux might be added later if needed.</span>
+          <span class="lang-ru">Windows + ПО для POE2. Позже добавим Mac/Linux, если будет спрос.</span>
+        </p>
+      </div>
+    </section>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer>
+    <p>
+      <span class="lang-en">
+        Atlas Shards — a fan project. Not affiliated with Grinding Gear Games. Path of Exile 2 is a trademark of GGG.
+      </span>
+      <span class="lang-ru">
+        Atlas Shards — фанатский проект. Не связан с Grinding Gear Games. Path of Exile 2 — торговая марка GGG.
+      </span>
+    </p>
+    <nav>
+      <a href="https://github.com/Atlas-Shards/ATLS" target="_blank">GitHub</a> | 
+      <a href="https://x.com/AtlasShard" target="_blank">Meta/X</a> | 
+      <a href="mailto:your.email@example.com">Email for proposals</a>
+    </nav>
+    <p>
+      <span class="lang-en">© 2025 Atlas Shards. Built with obsession for POE2.</span>
+      <span class="lang-ru">© 2025 Atlas Shards. Создано с любовью к POE2.</span>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
