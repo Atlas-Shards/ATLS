@@ -1,19 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Preloader: показываем 5 секунд, затем скрываем preloader и показываем контент
+  // Preloader: показываем 3 секунды, затем скрываем
   setTimeout(() => {
-    const preloader = document.getElementById("preloader");
-    preloader.style.transition = "opacity 0.5s ease";
-    preloader.style.opacity = 0;
+    document.getElementById("preloader").style.opacity = "0";
     setTimeout(() => {
-      preloader.style.display = "none";
-      document.getElementById("content").style.display = "block";
+      document.getElementById("preloader").style.display = "none";
     }, 500);
-  }, 5000);
+  }, 3000);
 
-  // Инициализация particles.js для заднего плана
+  // Инициализация particles.js
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 80 },
+      "number": { "value": 100 },
       "color": { "value": "#FFD700" },
       "shape": { "type": "circle" },
       "opacity": { "value": 0.5 },
@@ -29,37 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "retina_detect": true
   });
 
-  // Счетчик посещений страницы
-  const visitorCountElement = document.getElementById('visitorCount');
+  // Счетчик посещений
   fetch('https://api.countapi.xyz/hit/atlas-shards-website/visits')
     .then(response => response.json())
     .then(data => {
-      visitorCountElement.textContent = data.value;
+      document.getElementById('visitorCount').textContent = data.value;
     });
-
-  // Language toggle
-  let currentLanguage = "en";
-  const langToggleBtn = document.getElementById("langToggleBtn");
-
-  function updateLanguage() {
-    if (currentLanguage === "en") {
-      document.querySelectorAll(".lang-en").forEach(el => el.style.display = "");
-      document.querySelectorAll(".lang-ru").forEach(el => el.style.display = "none");
-      langToggleBtn.innerText = "RU";
-    } else {
-      document.querySelectorAll(".lang-en").forEach(el => el.style.display = "none");
-      document.querySelectorAll(".lang-ru").forEach(el => el.style.display = "");
-      langToggleBtn.innerText = "EN";
-    }
-  }
-  updateLanguage();
-
-  langToggleBtn.addEventListener("click", () => {
-    currentLanguage = (currentLanguage === "en") ? "ru" : "en";
-    document.body.classList.add("language-transition");
-    setTimeout(() => {
-      updateLanguage();
-      document.body.classList.remove("language-transition");
-    }, 300);
-  });
 });
