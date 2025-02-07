@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Preloader: показываем 5 секунд, затем переходим к контенту
+  // Preloader: показываем 5 секунд, затем запускаем анимацию перехода
   setTimeout(() => {
     const preloader = document.getElementById("preloader");
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = 0;
     setTimeout(() => {
+      // Скрываем preloader
       preloader.style.display = "none";
-      // Отображаем основной контент и логотип в шапке
+      // Отображаем основной контент
       document.getElementById("content").style.display = "block";
-      document.getElementById("headerLogo").style.display = "block";
+      // Активируем анимацию для логотипа в шапке
+      document.getElementById("headerLogo").classList.add("active");
     }, 500);
   }, 5000);
 
@@ -16,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const progressBars = document.querySelectorAll(".progress-bar");
   progressBars.forEach(bar => {
     const targetWidth = bar.style.width;
-    bar.offsetWidth; // принудительный reflow
+    bar.offsetWidth; // Принудительный reflow
     bar.style.width = targetWidth;
   });
 

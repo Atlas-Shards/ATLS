@@ -29,14 +29,14 @@ body {
   background: #FFA726;
 }
 
-/* Preloader */
+/* Preloader – логотип на весь экран */
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #1A1A1A;
+  background-color: #1A1A1A;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,27 +44,37 @@ body {
   z-index: 9999;
 }
 .preloader-logo {
-  width: 200px;
-  animation: pulse 1.5s infinite alternate;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 .preloader-text {
+  position: absolute;
+  bottom: 60px;
   font-size: 24px;
   font-weight: bold;
   background: linear-gradient(45deg, #FFA726, #FFD700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 10px;
+  margin: 0;
 }
 .preloader-subtext {
+  position: absolute;
+  bottom: 20px;
   font-size: 14px;
   color: #ccc;
 }
 
-/* Header Logo – изначально скрыт */
+/* Header Logo – изначально скрыт и с анимацией перехода */
 #headerLogo {
-  display: none;
   width: 80px;
-  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(-50px) scale(0.5);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+#headerLogo.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* Header */
@@ -88,7 +98,7 @@ nav a:hover {
   box-shadow: 0 0 10px #FFA726;
 }
 
-/* Скрытый контент до завершения preloader */
+/* Контент (скрыт до завершения preloader) */
 #content {
   display: none;
   animation: fadeIn 1s forwards;
@@ -96,10 +106,6 @@ nav a:hover {
 }
 
 /* Анимации */
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(1.1); opacity: 1; }
-}
 @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; visibility: hidden; }
@@ -108,7 +114,6 @@ nav a:hover {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
-
 /* Анимация при переключении языка */
 .language-transition {
   transition: opacity 0.3s ease;
