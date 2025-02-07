@@ -86,11 +86,17 @@ header .tagline {
 nav {
   text-align: center;
 }
+.nav-button {
+  display: inline-block; /* Прямоугольник вокруг кнопки */
+  margin: 10px; /* Отступ между кнопками */
+  border: 2px solid #FFD700; /* Граница */
+  border-radius: 5px; /* Закругление углов */
+}
 nav a {
   color: #FFD700;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
+  padding: 10px 15px; /* Отступы внутри кнопки */
+  display: block; /* Чтобы кнопка занимала всю область */
   transition: box-shadow 0.3s ease;
 }
 nav a:hover {
