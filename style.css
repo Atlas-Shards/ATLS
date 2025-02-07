@@ -9,7 +9,16 @@ body {
   overflow-x: hidden;
 }
 
+/* Частицы на весь экран */
 #particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 /* Language Toggle Button */
 #language-toggle {
   position: fixed;
@@ -24,10 +33,17 @@ body {
   padding: 5px 10px;
   color: #FFD700;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 #langToggleBtn:hover {
-  background: #FFA726;
+  animation: glowing 1s infinite;
+}
+
+/* Эффект свечения вокруг кнопки */
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px #FFA726, 0 0 10px #FFA726, 0 0 15px #FFA726; }
+  50% { box-shadow: 0 0 10px #FFA726, 0 0 20px #FFA726, 0 0 30px #FFA726; }
+  100% { box-shadow: 0 0 5px #FFA726, 0 0 10px #FFA726, 0 0 15px #FFA726; }
 }
 
 /* Preloader – полноэкранный логотип без текстовых приписок */
@@ -45,31 +61,16 @@ body {
 }
 .preloader-logo {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  z-index: -1;
   object-fit: cover;
 }
 
-/* Фиксированная шапка */
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  background: rgba(26, 26, 26, 0.9);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(26, 26, 26, 0.9); /* Немного затемняем шапку */
-  height: auto;
-  min-height: 200px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
 /* Заголовок и навигация */
+header {
+  text-align: center;
+  padding: 20px;
+}
 header h1 {
   font-size: 36px;
   margin: 20px;
@@ -82,6 +83,9 @@ header .tagline {
   margin: 10px 0;
 }
 
+nav {
+  text-align: center;
+}
 nav a {
   color: #FFD700;
   text-decoration: none;
@@ -93,11 +97,24 @@ nav a:hover {
   box-shadow: 0 0 10px #FFA726;
 }
 
+/* Анимация для Roadmap */
+.animated-roadmap {
+  font-size: 48px; /* Увеличение размера шрифта в два раза */
+  animation: pulse 1.5s infinite;
+}
+
+/* Эффект пульсации для Roadmap */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 /* Контент */
 #content {
   display: none;
   animation: fadeIn 1s forwards;
-  padding-top: 150px; /* Чтобы не перекрывать контент при фиксированном header */
+  padding-top: 20px; /* Увеличим отступ для фиксированной шапки */
 }
 
 /* Анимации */
@@ -179,25 +196,6 @@ html {
   font-size: 16px;
 }
 
-.quotes blockquote {
-  font-style: italic;
-  border-left: 3px solid #FFD700;
-  padding-left: 10px;
-  margin: 20px auto;
-  max-width: 500px;
-}
-
-#faq {
-  padding: 50px 20px;
-}
-.faq-item {
-  margin-bottom: 20px;
-  text-align: left;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 footer {
   background: #111;
   padding: 20px;
@@ -214,4 +212,23 @@ footer nav a {
   width: 80%;
   margin: 40px auto;
   border-bottom: 2px dashed #FFD700;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 28px; /* Уменьшение размера заголовка на мобильных устройствах */
+  }
+  header .tagline {
+    font-size: 16px; /* Уменьшение размера подзаголовка на мобильных устройствах */
+  }
+  .animated-roadmap {
+    font-size: 36px; /* Уменьшение размера Roadmap на мобильных устройствах */
+  }
+  nav a {
+    margin: 0 10px; /* Уменьшение отступов между ссылками на мобильных устройствах */
+  }
+  #community .btn {
+    padding: 8px 16px; /* Уменьшение отступов кнопки на мобильных устройствах */
+  }
 }

@@ -5,7 +5,43 @@ document.addEventListener("DOMContentLoaded", () => {
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = 0;
     setTimeout(() => {
-      document.getElementById("preloader").style.display = "none";
+      preloader.style.display = "none";
+      document.getElementById("content").style.display = "block";
+      
+      // Переинициализация частиц после загрузки
+      particlesJS("particles-js", {
+        "particles": {
+          "number": { "value": 150 },
+          "color": { "value": "#FFD700" },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.5 },
+          "size": { "value": 3 },
+          "line_linked": { 
+            "enable": true, 
+            "distance": 150, 
+            "color": "#FFA726", 
+            "opacity": 0.4, 
+            "width": 1 
+          },
+          "move": { 
+            "enable": true, 
+            "speed": 2,
+            "out_mode": "bounce" // Добавляем отскок частиц
+          }
+        },
+        "interactivity": {
+          "detect_on": "window",
+          "events": { 
+            "onhover": { "enable": true, "mode": "repulse" }, 
+            "onclick": { "enable": true, "mode": "push" } 
+          },
+          "modes": { 
+            "repulse": { "distance": 100 }, 
+            "push": { "particles_nb": 4 } 
+          }
+        },
+        "retina_detect": true
+      });
     }, 500);
   }, 5000);
 
@@ -33,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch('https://api.countapi.xyz/hit/atlas-shards-website/visits')
     .then(response => response.json())
     .then(data => {
-      document.getElementById('visitorCount').textContent = data.value;
+      visitorCountElement.textContent = data.value;
     });
 
   // Language toggle
