@@ -4,15 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas Shards ($ATLS)</title>
-  <!-- Подключаем стили -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Подключаем Three.js для 3D-сцены -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <!-- Подключаем particles.js для анимированных частиц -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Контейнер для частиц (будут на заднем плане) -->
+  <!-- Контейнер для частиц (анимированные частицы на заднем плане) -->
   <div id="particles-js"></div>
 
   <!-- Language Toggle Button (в правом верхнем углу) -->
@@ -28,7 +25,7 @@
   <!-- Основной контент -->
   <div id="content">
     <header>
-      <!-- Шапка, которая использует логотип как фон (подложку) -->
+      <!-- Шапка без картинки, только текст и кнопки -->
       <h1>Atlas Shards <span>($ATLS)</span></h1>
       <p class="tagline">
         <span class="lang-en">Turn your POE2 grind into a community-driven adventure</span>
@@ -42,6 +39,10 @@
         <a href="#community">
           <span class="lang-en">Join Community</span>
           <span class="lang-ru">Присоединиться к сообществу</span>
+        </a>
+        <a href="#contacts">
+          <span class="lang-en">Contacts</span>
+          <span class="lang-ru">Контакты</span>
         </a>
       </nav>
     </header>
@@ -148,16 +149,6 @@
       </div>
     </section>
 
-    <!-- 3D-карта Атласа -->
-    <section id="atlas3d">
-      <h2>
-        <span class="lang-en">Explore the Atlas in 3D</span>
-        <span class="lang-ru">Исследуйте Атлас в 3D</span>
-      </h2>
-      <!-- Canvas для 3D-сцены -->
-      <canvas id="atlas3d-canvas"></canvas>
-    </section>
-
     <!-- Community Section -->
     <section id="community">
       <h2>
@@ -178,9 +169,9 @@
         <span class="lang-en">Follow on Meta/X</span>
         <span class="lang-ru">Подписаться на Meta/X</span>
       </a>
-      <p class="counter">
-        <span class="lang-en">127 Explorers Joined</span>
-        <span class="lang-ru">127 первопроходцев присоединились</span>
+      <p class="counter" id="visitorCounter">
+        <span class="lang-en">Visitors: <span id="visitorCount">Loading...</span></span>
+        <span class="lang-ru">Посетители: <span id="visitorCount">Загрузка...</span></span>
       </p>
     </section>
 
@@ -221,6 +212,12 @@
         </p>
       </div>
     </section>
+
+    <!-- Контакты Section -->
+    <section id="contacts">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:Atlasshards@gmail.com">Atlasshards@gmail.com</a></p>
+    </section>
   </div>
 
   <!-- Footer -->
@@ -236,7 +233,7 @@
     <nav>
       <a href="https://github.com/Atlas-Shards/ATLS" target="_blank">GitHub</a> | 
       <a href="https://x.com/AtlasShard" target="_blank">Meta/X</a> | 
-      <a href="mailto:your.email@example.com">Email for proposals</a>
+      <a href="mailto:Atlasshards@gmail.com">Email for proposals</a>
     </nav>
     <p>
       <span class="lang-en">© 2025 Atlas Shards. Built with obsession for POE2.</span>
@@ -244,7 +241,6 @@
     </p>
   </footer>
 
-  <!-- Подключаем основной скрипт -->
   <script src="script.js"></script>
 </body>
 </html>

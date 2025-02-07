@@ -29,6 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "retina_detect": true
   });
 
+  // Счетчик посещений страницы
+  const visitorCountElement = document.getElementById('visitorCount');
+  fetch('https://api.countapi.xyz/hit/atlas-shards-website/visits')
+    .then(response => response.json())
+    .then(data => {
+      visitorCountElement.textContent = data.value;
+    });
+
   // Language toggle
   let currentLanguage = "en";
   const langToggleBtn = document.getElementById("langToggleBtn");

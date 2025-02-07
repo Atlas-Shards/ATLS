@@ -29,7 +29,7 @@ body {
   background: #FFA726;
 }
 
-/* Preloader – полноэкранный логотип без текста */
+/* Preloader – полноэкранный логотип без текстовых приписок */
 #preloader {
   position: fixed;
   top: 0;
@@ -48,7 +48,7 @@ body {
   object-fit: cover;
 }
 
-/* Шапка (header) */
+/* Шапка (header) без картинки */
 header {
   position: fixed;
   top: 0;
@@ -63,11 +63,6 @@ header {
   justify-content: center;
   background: rgba(26, 26, 26, 0.9); /* Немного затемняем шапку */
   height: auto;
-  background-image: url('assets/Logo.png'); /* Логотип как фон */
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed; /* Чтобы фон не двигался при прокрутке */
-  opacity: 0.5; /* Устанавливаем прозрачность фона */
   min-height: 200px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
