@@ -10,14 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }, 5000);
 
-  // Анимация для прогресс-баров в дорожной карте
-  const progressBars = document.querySelectorAll(".progress-bar");
-  progressBars.forEach(bar => {
-    const targetWidth = bar.style.width;
-    bar.offsetWidth; // Принудительный reflow
-    bar.style.width = targetWidth;
-  });
-
   // Инициализация particles.js для заднего плана
   particlesJS("particles-js", {
     "particles": {
@@ -36,28 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     "retina_detect": true
   });
-
-  // Инициализация 3D-карты Атласа с использованием Three.js (пример с вращающимся кубом)
-  let scene = new THREE.Scene();
-  let camera = new THREE.PerspectiveCamera(75, document.getElementById("atlas3d-canvas").clientWidth / document.getElementById("atlas3d-canvas").clientHeight, 0.1, 1000);
-  let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("atlas3d-canvas"), antialias: true });
-  renderer.setSize(document.getElementById("atlas3d-canvas").clientWidth, document.getElementById("atlas3d-canvas").clientHeight);
-
-  // Пример геометрии (куб)
-  let geometry = new THREE.BoxGeometry();
-  let material = new THREE.MeshBasicMaterial({ color: 0xFFD700, wireframe: true });
-  let cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-
-  camera.position.z = 3;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.005;
-    cube.rotation.y += 0.005;
-    renderer.render(scene, camera);
-  }
-  animate();
 
   // Language toggle
   let currentLanguage = "en";
