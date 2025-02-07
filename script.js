@@ -5,15 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = 0;
     setTimeout(() => {
-      preloader.style.display = "none";
-      document.getElementById("content").style.display = "block";
+      document.getElementById("preloader").style.display = "none";
     }, 500);
   }, 5000);
 
   // Инициализация particles.js для заднего плана
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 80 },
+      "number": { "value": 100 },
       "color": { "value": "#FFD700" },
       "shape": { "type": "circle" },
       "opacity": { "value": 0.5 },
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch('https://api.countapi.xyz/hit/atlas-shards-website/visits')
     .then(response => response.json())
     .then(data => {
-      visitorCountElement.textContent = data.value;
+      document.getElementById('visitorCount').textContent = data.value;
     });
 
   // Language toggle
