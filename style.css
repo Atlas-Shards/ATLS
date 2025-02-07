@@ -184,7 +184,21 @@ html {
   border-radius: 5px;
   text-decoration: none;
   color: #1A1A1A;
-  transition: box-shadow 0.3s ease;
+  transition: background 0.3s ease;
+  animation: pulse-button 1.5s infinite; /* Анимация мигания кнопки */
+}
+
+/* Эффект мигания кнопки */
+@keyframes pulse-button {
+  0% {
+    background: #FFA726;
+  }
+  50% {
+    background: #00FFFF; /* Бирюзовый цвет */
+  }
+  100% {
+    background: #FFA726;
+  }
 }
 
 #community .btn:hover {
