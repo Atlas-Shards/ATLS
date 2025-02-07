@@ -4,26 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Atlas Shards ($ATLS)</title>
+  <!-- Подключаем стили -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Подключаем Three.js для 3D-сцены -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Подключаем particles.js для анимированных частиц -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Language Toggle Button -->
+  <!-- Контейнер для частиц (будут на заднем плане) -->
+  <div id="particles-js"></div>
+
+  <!-- Language Toggle Button (в правом верхнем углу) -->
   <div id="language-toggle">
     <button id="langToggleBtn">RU</button>
   </div>
 
-  <!-- Preloader – полноэкранный логотип без текста -->
+  <!-- Preloader – полноэкранный логотип без текстовых приписок -->
   <div id="preloader">
-    <img id="preloaderLogo" src="assets/Logo.png" alt="Atlas Shards Logo" class="preloader-logo" />
+    <img id="preloaderLogo" src="assets/Logo.png" alt="Atlas Shards Logo" class="preloader-logo" loading="lazy" />
   </div>
 
   <!-- Основной контент -->
   <div id="content">
     <header>
-      <!-- Логотип в шапке, который теперь остаётся на всю ширину (как подложка) -->
-      <div id="headerLogoContainer">
-        <img id="headerLogo" src="assets/Logo.png" alt="Atlas Shards Logo" />
-      </div>
+      <!-- Шапка, которая использует логотип как фон (подложку) -->
       <h1>Atlas Shards <span>($ATLS)</span></h1>
       <p class="tagline">
         <span class="lang-en">Turn your POE2 grind into a community-driven adventure</span>
@@ -143,6 +148,16 @@
       </div>
     </section>
 
+    <!-- 3D-карта Атласа -->
+    <section id="atlas3d">
+      <h2>
+        <span class="lang-en">Explore the Atlas in 3D</span>
+        <span class="lang-ru">Исследуйте Атлас в 3D</span>
+      </h2>
+      <!-- Canvas для 3D-сцены -->
+      <canvas id="atlas3d-canvas"></canvas>
+    </section>
+
     <!-- Community Section -->
     <section id="community">
       <h2>
@@ -229,6 +244,7 @@
     </p>
   </footer>
 
+  <!-- Подключаем основной скрипт -->
   <script src="script.js"></script>
 </body>
 </html>

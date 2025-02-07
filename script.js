@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Preloader: показываем 5 секунд, затем запускаем анимацию перехода
+  // Preloader: показываем 5 секунд, затем скрываем preloader и показываем контент
   setTimeout(() => {
     const preloader = document.getElementById("preloader");
     preloader.style.transition = "opacity 0.5s ease";
     preloader.style.opacity = 0;
     setTimeout(() => {
-      // Скрываем preloader
       preloader.style.display = "none";
-      // Отображаем основной контент
       document.getElementById("content").style.display = "block";
-      // Активируем анимацию для логотипа в шапке
-      document.getElementById("headerLogo").classList.add("active");
     }, 500);
   }, 5000);
 
@@ -21,6 +17,47 @@ document.addEventListener("DOMContentLoaded", () => {
     bar.offsetWidth; // Принудительный reflow
     bar.style.width = targetWidth;
   });
+
+  // Инициализация particles.js для заднего плана
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 80 },
+      "color": { "value": "#FFD700" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.5 },
+      "size": { "value": 3 },
+      "line_linked": { "enable": true, "distance": 150, "color": "#FFA726", "opacity": 0.4, "width": 1 },
+      "move": { "enable": true, "speed": 2 }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
+      "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+    },
+    "retina_detect": true
+  });
+
+  // Инициализация 3D-карты Атласа с использованием Three.js (пример с вращающимся кубом)
+  let scene = new THREE.Scene();
+  let camera = new THREE.PerspectiveCamera(75, document.getElementById("atlas3d-canvas").clientWidth / document.getElementById("atlas3d-canvas").clientHeight, 0.1, 1000);
+  let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("atlas3d-canvas"), antialias: true });
+  renderer.setSize(document.getElementById("atlas3d-canvas").clientWidth, document.getElementById("atlas3d-canvas").clientHeight);
+
+  // Пример геометрии (куб)
+  let geometry = new THREE.BoxGeometry();
+  let material = new THREE.MeshBasicMaterial({ color: 0xFFD700, wireframe: true });
+  let cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+
+  camera.position.z = 3;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    cube.rotation.x += 0.005;
+    cube.rotation.y += 0.005;
+    renderer.render(scene, camera);
+  }
+  animate();
 
   // Language toggle
   let currentLanguage = "en";
@@ -37,8 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
       langToggleBtn.innerText = "EN";
     }
   }
-
-  // Устанавливаем язык по умолчанию (английский)
   updateLanguage();
 
   langToggleBtn.addEventListener("click", () => {
