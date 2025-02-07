@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
 body {
   font-family: 'Exo 2', sans-serif;
   background-color: #1A1A1A;
@@ -7,28 +9,207 @@ body {
   overflow-x: hidden;
 }
 
-/* Частицы занимают всю страницу */
-#particles-js {
+/* Language Toggle Button */
+#language-toggle {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+}
+#langToggleBtn {
+  background: transparent;
+  border: 1px solid #FFD700;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #FFD700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#langToggleBtn:hover {
+  background: #FFA726;
 }
 
-/* Фиксированная шапка */
-#header {
+/* Preloader – полноэкранный логотип без текстовых приписок */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.preloader-logo {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Шапка (header) без картинки */
+header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
-  background: rgba(26, 26, 26, 0.9);
+  z-index: 1;
   padding: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 26, 0.9); /* Немного затемняем шапку */
+  height: auto;
+  min-height: 200px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* Убираем скрытие контента */
+/* Заголовок и навигация */
+header h1 {
+  font-size: 36px;
+  margin: 20px;
+  color: #FFD700;
+  font-weight: bold;
+}
+header .tagline {
+  font-size: 18px;
+  color: #FFA726;
+  margin: 10px 0;
+}
+
+nav a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease;
+}
+nav a:hover {
+  box-shadow: 0 0 10px #FFA726;
+}
+
+/* Контент */
 #content {
-  padding-top: 120px;
+  display: none;
+  animation: fadeIn 1s forwards;
+  padding-top: 150px; /* Чтобы не перекрывать контент при фиксированном header */
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Плавный переход между секциями */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Roadmap */
+#roadmap {
+  padding: 50px 20px;
+}
+.timeline {
+  max-width: 600px;
+  margin: auto;
+}
+.phase {
+  background: #2A2A2A;
+  border: 2px solid #FFD700;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.phase-icon {
+  font-size: 30px;
+}
+.phase-details h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.phase-details p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+.progress {
+  background: #444;
+  height: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: #FFA726;
+  width: 0%;
+  transition: width 1s;
+}
+
+/* Community Section */
+#community {
+  padding: 50px 20px;
+  background: #111;
+  text-align: center;
+}
+
+#community .btn {
+  background: #FFA726;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #1A1A1A;
+  transition: box-shadow 0.3s ease;
+}
+
+#community .btn:hover {
+  box-shadow: 0 0 10px #FFD700;
+}
+
+.counter {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.quotes blockquote {
+  font-style: italic;
+  border-left: 3px solid #FFD700;
+  padding-left: 10px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+#faq {
+  padding: 50px 20px;
+}
+.faq-item {
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 50px;
+}
+
+footer nav a {
+  margin: 0 10px;
+}
+
+.divider {
+  width: 80%;
+  margin: 40px auto;
+  border-bottom: 2px dashed #FFD700;
 }
