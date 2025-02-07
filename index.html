@@ -12,25 +12,18 @@
     <button id="langToggleBtn">RU</button>
   </div>
 
-  <!-- Preloader (логотип на весь экран) -->
+  <!-- Preloader – полноэкранный логотип без текста -->
   <div id="preloader">
-    <!-- Большой логотип на весь экран -->
     <img id="preloaderLogo" src="assets/Logo.png" alt="Atlas Shards Logo" class="preloader-logo" />
-    <p class="preloader-text">
-      <span class="lang-en">YOUR GRIND. YOUR REWARDS</span>
-      <span class="lang-ru">ВАШ ГРИНД. ВАШИ НАГРАДЫ</span>
-    </p>
-    <p class="preloader-subtext">
-      <span class="lang-en">A solo-dev project for Path of Exile 2 fans</span>
-      <span class="lang-ru">Фанатский проект для Path of Exile 2</span>
-    </p>
   </div>
 
   <!-- Основной контент -->
   <div id="content">
     <header>
-      <!-- Логотип в шапке (скрыт и анимированно появляется) -->
-      <img id="headerLogo" src="assets/Logo.png" alt="Atlas Shards Logo" />
+      <!-- Логотип в шапке, который теперь остаётся на всю ширину (как подложка) -->
+      <div id="headerLogoContainer">
+        <img id="headerLogo" src="assets/Logo.png" alt="Atlas Shards Logo" />
+      </div>
       <h1>Atlas Shards <span>($ATLS)</span></h1>
       <p class="tagline">
         <span class="lang-en">Turn your POE2 grind into a community-driven adventure</span>
@@ -174,12 +167,6 @@
         <span class="lang-en">127 Explorers Joined</span>
         <span class="lang-ru">127 первопроходцев присоединились</span>
       </p>
-      <div class="quotes">
-        <blockquote>
-          <span class="lang-en">“Finally, someone made a token for real POE2 fans!” — @User123</span>
-          <span class="lang-ru">«Наконец-то кто-то сделал токен для настоящих фанатов POE2!» — @User123</span>
-        </blockquote>
-      </div>
     </section>
 
     <!-- FAQ Section -->
